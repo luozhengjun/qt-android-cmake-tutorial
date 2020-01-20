@@ -1,0 +1,16 @@
+{
+   "description": "${DEPLOY_SETTINGS_DESC}",
+   "qt": "${Qt5_android}",
+   "sdk": "${ANDROID_SDK}",
+   "sdkBuildToolsRevision": "29.0.2",
+   "ndk": "${CMAKE_ANDROID_NDK}",
+   "toolchain-prefix": "llvm",
+   "tool-prefix": "llvm",
+   "toolchain-version": "4.9",
+   "ndk-host": "${ANDROID_NDK_HOST_SYSTEM_NAME}",
+   "target-architecture": "${CMAKE_ANDROID_ARCH_ABI}",
+   "qml-root-path": "${QML_ROOT_PATH}",
+   "stdcpp-path": "${STDCPP_PATH}",
+   "useLLVM": true,
+   "application-binary": "${ANDROID_APP_SO}"
+}
