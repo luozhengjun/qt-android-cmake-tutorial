@@ -1,6 +1,6 @@
 {
    "description": "${DEPLOY_SETTINGS_DESC}",
-   "qt": "${Qt5_android}",
+   "qt": "${Qt_Android}",
    "sdk": "${ANDROID_SDK}",
    "sdkBuildToolsRevision": "29.0.2",
    "ndk": "${CMAKE_ANDROID_NDK}",
