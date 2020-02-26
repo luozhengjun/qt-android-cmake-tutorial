@@ -2,7 +2,7 @@
    "description": "${DEPLOY_SETTINGS_DESC}",
    "qt": "${Qt_Android}",
    "sdk": "${ANDROID_SDK}",
-   "sdkBuildToolsRevision": "29.0.2",
+   "sdkBuildToolsRevision": "",
    "ndk": "${CMAKE_ANDROID_NDK}",
    "toolchain-prefix": "llvm",
    "tool-prefix": "llvm",

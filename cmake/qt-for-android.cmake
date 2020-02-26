@@ -37,12 +37,12 @@ function(add_android_app target)
         LIBRARY_OUTPUT_DIRECTORY ${APP_SO_DIR}
     )
 
-    get_filename_component(Qt_Android $ENV{Qt_Android} ABSOLUTE)
+    get_filename_component(Qt_Android "$ENV{Qt_Android}" ABSOLUTE)
     if(NOT JAVA_HOME)
-    	get_filename_component(JAVA_HOME $ENV{JAVA_HOME} ABSOLUTE)
+        get_filename_component(JAVA_HOME "$ENV{JAVA_HOME}" ABSOLUTE)
     endif()
     if(NOT ANDROID_SDK)
-        get_filename_component(ANDROID_SDK ${CMAKE_ANDROID_NDK}/.. ABSOLUTE)
+        get_filename_component(ANDROID_SDK "$ENV{ANDROID_SDK}" ABSOLUTE)
     endif()
 
     get_filename_component(STDCPP_PATH
@@ -52,7 +52,7 @@ function(add_android_app target)
     configure_file(${deploy_settings_json_in} ${deploy_settings_json})
 
     set(android_build_dir ${CMAKE_BINARY_DIR}/android-build)
-    set(android_deploy_qt $ENV{Qt_Android_Deploy_Qt})
+    set(android_deploy_qt "$ENV{Qt_Android_Deploy_Qt}")
     add_custom_command(
         OUTPUT build_apk
         DEPENDS target

@@ -1,5 +1,6 @@
 # Qt和CMake开发Android应用程序
-## ubuntu18.04 准备开发环境
+## ubuntu18.04
+### 准备开发环境
   * 安装android studio
     ```
     sudo apt install cmake
@@ -21,12 +22,13 @@
     ```
     安装过程中选择所需要的android工具链
 
-## 编译Android APK
+### 编译Android APK
   * 设置环境变量
     ```
     export Qt_Android=<path to qt android>
     export Qt_Android_Deploy_Qt=$Qt_Android/bin/androiddeployqt
     export JAVA_HOME=<path to java install directory>
+	export ANDROID_SDK=<path to android sdk directory>
 
     ANDROID_CMAKE_TOOLCHAIN=<path to ANDROID_NDK android.toolchain.cmake>
     ```
@@ -41,7 +43,7 @@
     ```
   其中`ANDROID_PLATFORM`中api的版本需要`>=24`
 
-## 编译x86_64的HOST版本
+### 编译x86_64的HOST版本
   * 安装c/c++本地编译环境
     ```
     sudo apt install build-essential
