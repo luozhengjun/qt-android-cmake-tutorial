@@ -1,5 +1,5 @@
 # Qt和CMake开发Android应用程序
-## ubuntu18.04
+## Ubuntu 18.04
 ### 准备开发环境
   * 安装android studio
     ```
@@ -59,3 +59,48 @@
     make
     ```
 
+## Windows
+### 准备开发环境
+  * 安装android studio
+    从https://developer.android.com/studio下载安装包，完成安装后运行studio在GUI界面的SDK Manager中下载sdk tools, ndk等工具
+  * 安装qt for android
+    从https://download.qt.io/archive/qt/5.12/5.12.7/qt-opensource-windows-x86-5.12.7.exe下载Qt5.12的安装包, 安装过程中选择所需要的android工具链
+
+### 编译Android APK
+  * 设置环境变量
+    ```
+    set Qt_Android=<path to qt android>
+    set Qt_Android_Deploy_Qt=%Qt_Android%\bin\androiddeployqt.exe
+
+    set JAVA_HOME=<path to java install directory>
+	set ANDROID_SDK=<path to android sdk directory>
+    set ANDROID_CMAKE_TOOLCHAIN=<path to ANDROID_NDK android.toolchain.cmake>
+	set ANDROID_MAKE_PROGRAM=<path to ANDROID_NDK make.exe>
+    ```
+    其中`android.toolchain.cmake`文件在`ANDROID_NDK\build\cmake`目录; 安装Studio的过程中会将JDK安装"<Android Studio安装目录>\Android Studio\jre", JAVA_HOME指向该目录即可
+  * 编译
+    ```
+    git clone https://github.com/luozhengjun/qt-android-cmake-tutorial.git
+    mkdir build_qt-android-cmake-tutorial
+    cd build_qt-android-cmake-tutorial
+	cmake ..\android-cmake-tutorial -G"Unix Makefiles" -DCMAKE_MAKE_PROGRAM=%ANDROID_MAKE_PROGRAM% -DCMAKE_TOOLCHAIN_FILE=%ANDROID_CMAKE_TOOLCHAIN% -DANDROID_PLATFORM=android-24
+    cmake --build . --target apk
+    ```
+  其中`ANDROID_PLATFORM`中api的版本需要`>=24`
+
+### 编译MinGW x86_64的HOST版本
+  * 编译环境
+    安装Qt的过程中，选择安装MinGW C/C++编译器, 以及相对应的MinGW Qt开发库
+  * 设置环境变量
+    ```
+    set Qt_Host=<path to mingw qt library>
+    set PATH=<path to mingw c/c++ toolchain directory>;%PATH%
+	```
+  * 编译
+    ```
+    git clone https://github.com/luozhengjun/qt-android-cmake-tutorial.git
+    mkdir build_qt-android-cmake-tutorial
+    cd build_qt-android-cmake-tutorial
+    cmake ..\android-cmake-tutorial -G"MinGW Makefiles"
+    cmake --build .
+    ```
