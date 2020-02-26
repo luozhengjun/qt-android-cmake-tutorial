@@ -62,9 +62,9 @@
 ## Windows
 ### 准备开发环境
   * 安装android studio
-    从https://developer.android.com/studio下载安装包，完成安装后运行studio在GUI界面的SDK Manager中下载sdk tools, ndk等工具
+    从<https://developer.android.com/studio>下载安装包，完成安装后运行studio在GUI界面的SDK Manager中下载sdk tools, ndk等工具
   * 安装qt for android
-    从https://download.qt.io/archive/qt/5.12/5.12.7/qt-opensource-windows-x86-5.12.7.exe下载Qt5.12的安装包, 安装过程中选择所需要的android工具链
+    从<https://download.qt.io/archive/qt/5.12/5.12.7/qt-opensource-windows-x86-5.12.7.exe>下载Qt5.12的安装包, 安装过程中选择所需要的android工具链
 
 ### 编译Android APK
   * 设置环境变量
