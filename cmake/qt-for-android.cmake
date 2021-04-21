@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
 
+if(NOT ANDROID)
+    message(FATAL_ERROR "Should only be used in android development.")
+endif()
+
 function(set_qt_search_path)
     set(CMAKE_FIND_ROOT_PATH "")
-    if(ANDROID)
-        set(CMAKE_FIND_ROOT_PATH ${CMAKE_FIND_ROOT_PATH} "$ENV{Qt_Android}" PARENT_SCOPE)
-    else()
-        set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "$ENV{Qt_Host}" PARENT_SCOPE)
-    endif()
+    set(CMAKE_FIND_ROOT_PATH ${CMAKE_FIND_ROOT_PATH} "$ENV{Qt_Android}" PARENT_SCOPE)
 endfunction()
 
 get_filename_component(deploy_settings_json_in
@@ -14,10 +14,6 @@ get_filename_component(deploy_settings_json_in
 )
 
 function(add_android_app target)
-    if(NOT ANDROID)
-        return()
-    endif()
-
     set(list_args SOURCES LIBRARIES)
     cmake_parse_arguments(_args "" "" "${list_args}" ${ARGN})
 

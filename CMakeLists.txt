@@ -2,8 +2,10 @@ cmake_minimum_required(VERSION 3.10)
 
 project(demo-clocks)
 
-include(cmake/qt-for-android.cmake)
-set_qt_search_path()
+if(ANDROID)
+    include(cmake/qt-for-android.cmake)
+    set_qt_search_path()
+endif()
 
 set(CMAKE_AUTORCC ON)
 find_package(Qt5Qml REQUIRED)
